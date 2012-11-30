@@ -13,16 +13,16 @@ In this game, the client communicates via websockets with the server.
 
 ## Concepts 
 
-First.  game <b>clone</b> a hero that will <b>clone</b> hp, mp, attack and defense etc from the hero ontology.
+First.  game <b>clone</b> a hero that will <b>clone</b> hp, mp, attack and defense etc from the hero ontology.<br/>
 
-Second. hero enters the <b>origin</b> <b>master</b> scene to <b>push message and <b>pull task from NPC.
-Third.  There are three <b>branch</b> scenes in the game, where you can roam casually, just like github <b>branch</b>.
-Last. after died,hero will <b>clone</b> self,and <b>commit</b> the status.
+Second. hero enters the <b>origin</b> <b>master</b> scene to <b>push</b> message and <b>pull</b> task from NPC.<br/>
+Third.  There are three <b>branch</b> scenes in the game, where you can roam casually, just like github <b>branch</b>.<br/>
+Last. after died,hero will <b>clone</b> self,and <b>commit</b> the status.<br/>
 
 
 ## Screenshot
 
-![scene three](http://pomelo.netease.com/image/demo4.png)
+![scene three](http://pomelo.netease.com/image/demo4.png)<br/>
 This is a screenshot in scene three. There are many monsters and one hero named Traxex who is killing the monster for experiences, treasures and equipments.
 
 
@@ -44,7 +44,7 @@ Last exec node app.js in aboved direcotry.
 * colorbox
 * express(http://expressjs.com/)
 * socket.io(http://socket.io/)
-
+* 66rpg.com
 .................
  
 
