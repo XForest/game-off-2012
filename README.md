@@ -1,64 +1,89 @@
-Here at GitHub, we're no strangers to hosting or sponsoring hackathons. With the growing number of games and game development resources on GitHub, we thought it was about time to throw our very own game jam!
+##XForest -  a browser-based MMORPG
 
-## The Challenge
+XForest is a browser-based MMORPG(massively multiplayer online role-playing game). 
+The backend is written in node.js based on [pomelo](https://github.com/NetEase/pomelo/wiki/Introduction-to-pomelo),
+which is a fast, scalable, distributed game server framework for node.js. The frontend uses the HTML5 Canvas to draw 
+the map and renders the animations by colorbox, which is a client side game engine written in JavaScript based on HTML5.
+In this game, the client communicates via websockets with the server. 
 
-You have the entire month of November to create a **web-based** game *loosely* built around one or more of the following themes:
+## Online demo
 
-* forking (or forks)
-* branching (or branches)
-* cloning (or clones)
-* pushing
-* pulling
+ * Visit [XForest](http://www.appme.net) online
 
-What do we mean by **loosely** based on these concepts? We literally mean, *loosely* based. Some examples might be a FPS where you throw forks at water balloons, an educational game about DNA cloning, or perhaps a platformer where you push and pull objects.
 
-Your game. Your rules. You can participate as an individual or as a team. You're encouraged to use open source libraries, frameworks, graphics, and sounds.
+## Concepts 
 
-## Prizes
+First.  we clone a hero that will clone hp, mp, attack and defense etc from the hero ontology.
+Second. hero enters the origin master scene to push message and pull task from NPC.
+Third.  There are three branch scenes in the game, where you can roam casually, just like github branch.
+Last. after died,hero will clone self,and commit the status.
 
-We have 5 shiny new iPads with Retina displays (64GB wifi models) to give to our winners (or Apple Store Credit equivalent). Runners up will receive GitHub swag of their choice ($100 credit for the [GitHub Shop](http://shop.github.com/)). If you have a team submission, we'll give you Apple Store credit equal to the value of the iPad. You can split it with your teammates as appropriate.
 
-All of the winners and runners up will be showcased on our blog.
+## Screenshot
 
-<img src="http://i.imgur.com/lxZrD.png" style="border:0;">
+![scene three](http://pomelo.netease.com/image/demo4.png)
 
-### Everyone's a winner!
 
-All participants will receive a limited edition [Coderwall](http://www.coderwall.com) badge as shown above. Winners and runners up will also get their own special version of it.
+## How to install
+First. clone the code and config mysql.
+Then npm install in game-server and web-server.
+Last exec node app.js in aboved direcotry.
 
-## Judging
 
-We have a number of awesome judges who graciously volunteered to take a look at all the entries!
+## Requirements
 
-* [David Czarnecki](http://twitter.com/CzarneckiD), Lead Engineer at Agora Games
-* [Eric Preisz](https://twitter.com/epreisz), CEO of GarageGames
-* [Matt Hackett](https://twitter.com/#!/richtaur), Co-founder of Lost Decade Games
-* [Lee Reilly](http://twitter.com/leereilly), Gamer Dad and Software Developer at GitHub
-* [Romana Ramzan](https://twitter.com/Manak/), Denki's Player Champion. PhD Researcher. Organiser of Scottish Game Jam.
+* [nodejs](http://nodejs.org/)
+* Linux or Mac os
+* MySQL
 
-## Rules
+## Open source projects
 
-* To qualify for entry as an **individual** you must fork the [github/game-off-2012](https://github.com/github/game-off-2012) repository to your individual account
-* To qualify for entry as a **team** you must fork the [github/game-off-2012](https://github.com/github/game-off-2012) to a [free organization account](https://github.com/settings/organizations)
-* All entries must be web-based i.e. playable in a browser. HTML5, WebGL, Unity, Torque 3D, Node JS, Flash is all possible - just be sure the source is made available on your fork.
-* You must be over the age of 13
+* pomelo(https://github.com/NetEase/pomelo  or  http://pomelo.netease.com/)
+* colorbox
+* express(http://expressjs.com/)
+* socket.io(http://socket.io/)
 
-## Instructions
+.................
 
-* If you don't already have a GitHub account, [sign up now](https://github.com/signup/free) - it's free!
-* Fork the [github/game-off-2012](https://github.com/github/game-off-2012) repository to your individual account (or to a free organization account)
-* Be sure to follow @github on Twitter for updates
-* Make sure your code is pushed to the master branch of before Dec 1st!
-* Make sure you have a README file with a brief description, what open source projects (if any) you used, and a screenshot.
-* Your repo should have a brief description and a URL where the game is playable entered into the fields shown below (this will make our judging process easier):
+#### pomelo
 
-![](https://img.skitch.com/20121010-x2ecpu95fi91us6hbfehg2dgit.png)
+Pomelo is made by our team. It is a fast, scalable, distributed game server framework for node.js. It provides the basic
+development framework and a lot of related components, including libraries and tools. Pomelo is also suitable for realtime
+web application, its distributed architecture makes pomelo scales better than other realtime web framework.
 
-Winners will be announced before Christmas :santa:
+####colorbox
+Colorbox is our team's another open source project. It is a client side game engine written in JavaScript based on HTML5 and 
+soon to be open source. 
 
-# Comments / Questions / Help
 
-* New to Git, GitHub, and/or version control? Check out our [help documentation](https://help.github.com/) to get started!
-* Questions about Git/GitHub? Please email support@github.com and be sure to include 'GitHub Game Off' in the subject.
-* Questions specific to the GitHub Game Off? Please [create an issue](https://github.com/github/game-off-2012/issues/new). That will be the offical FAQ.
-* The official Twitter hashtag is [#ggo12](https://twitter.com/search/realtime?q=%23ggo12).
+## Screenshot
+
+![scene three](http://pomelo.netease.com/image/demo4.png)
+
+This is a screenshot in scene three. There are many monsters and one hero named Traxex who is killing the monster for experiences, treasures and equipments.
+
+
+## License
+
+(The MIT License)
+
+Copyright (c) 2012 Netease, Inc. and other contributors
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
