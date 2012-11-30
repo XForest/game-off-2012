@@ -11,7 +11,7 @@ In this game, the client communicates via websockets with the server.
  * Visit [XForest](http://www.appme.net) online
 
 
-## Themes
+## Concepts 
 
 First.  we clone a hero that will clone hp, mp, attack and defense etc from the hero ontology.
 Second. hero enters the origin master scene to push message and pull task from NPC.
