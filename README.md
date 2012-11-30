@@ -13,15 +13,17 @@ In this game, the client communicates via websockets with the server.
 
 ## Concepts 
 
-First.  we clone a hero that will clone hp, mp, attack and defense etc from the hero ontology.
-Second. hero enters the origin master scene to push message and pull task from NPC.
-Third.  There are three branch scenes in the game, where you can roam casually, just like github branch.
-Last. after died,hero will clone self,and commit the status.
+First.  game <b>clone</b> a hero that will <b>clone</b> hp, mp, attack and defense etc from the hero ontology.
+
+Second. hero enters the <b>origin</b> <b>master</b> scene to <b>push message and <b>pull task from NPC.
+Third.  There are three <b>branch</b> scenes in the game, where you can roam casually, just like github <b>branch</b>.
+Last. after died,hero will <b>clone</b> self,and <b>commit</b> the status.
 
 
 ## Screenshot
 
 ![scene three](http://pomelo.netease.com/image/demo4.png)
+This is a screenshot in scene three. There are many monsters and one hero named Traxex who is killing the monster for experiences, treasures and equipments.
 
 
 ## How to install
@@ -44,24 +46,7 @@ Last exec node app.js in aboved direcotry.
 * socket.io(http://socket.io/)
 
 .................
-
-#### pomelo
-
-Pomelo is made by our team. It is a fast, scalable, distributed game server framework for node.js. It provides the basic
-development framework and a lot of related components, including libraries and tools. Pomelo is also suitable for realtime
-web application, its distributed architecture makes pomelo scales better than other realtime web framework.
-
-####colorbox
-Colorbox is our team's another open source project. It is a client side game engine written in JavaScript based on HTML5 and 
-soon to be open source. 
-
-
-## Screenshot
-
-![scene three](http://pomelo.netease.com/image/demo4.png)
-
-This is a screenshot in scene three. There are many monsters and one hero named Traxex who is killing the monster for experiences, treasures and equipments.
-
+ 
 
 ## License
 
