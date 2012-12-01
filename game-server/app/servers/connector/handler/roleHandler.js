@@ -1,11 +1,8 @@
 var pomelo = require('pomelo');
 var logger = require('pomelo-logger').getLogger(__filename);
 var userDao = require('../../../dao/userDao');
-var equipDao = require('../../../dao/equipmentsDao');
-var bagDao = require('../../../dao/bagDao');
 var consts = require('../../../consts/consts');
 var channelUtil = require('../../../util/channelUtil');
-var async = require('async');
 
 module.exports = function(app) {
 	return new Handler(app);

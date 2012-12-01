@@ -11,7 +11,6 @@ var formula = require('../../consts/formula');
 var executeTask = require('./../executeTask');
 var area = require('../area/area');
 var messageService = require('../messageService');
-var TaskDao = require('../../dao/taskDao');
 
 /**
  * Initialize a new 'Npc' with the given 'opts'.

@@ -4,9 +4,6 @@
 
 var utils = require('../../../util/utils');
 var userDao = require('../../../dao/userDao');
-var bagDao = require('../../../dao/bagDao');
-var taskDao = require('../../../dao/taskDao');
-var equipmentsDao = require('../../../dao/equipmentsDao');
 var area = require('../../../domain/area/area');
 var consts = require('../../../consts/consts');
 var messageService = require('../../../domain/messageService');
@@ -35,10 +32,6 @@ exp.playerLeave = function(args, cb){
 	if(player.hp == 0){
 		player.hp = Math.floor(player.maxHp/2);
 	}
-	userDao.updatePlayer(player);
-	bagDao.update(player.bag);
-	equipmentsDao.update(player.equipments);
-	tasksUpdate(player.curTasks);
 	area.removePlayer(playerId);
 	messageService.pushMessage({route: 'onUserLeave', code: consts.MESSAGE.RES, playerId: playerId});
 	utils.invokeCallback(cb);

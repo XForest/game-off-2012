@@ -6,8 +6,6 @@
   "express": "2.5.2"
   , "connect": ">=0.0.1"
   , "socket.io": ">=0.9.6"
-  , "generic-pool": ">=1.0.9"
-  , "mysql": ">=2.0"
   , "pomelo": "0.2.1"
   , "async": ">=0.0.1"
   , "socket.io-client" : ">=0.9.6"

@@ -408,7 +408,7 @@ body .skill-box {
 /* m-loadrate */
 .m-loadrate{position:relative;width:491px;height:35px;padding:8px 10px 9px 9px;}
 .m-loadrate .loadbg{width:491px;height:35px;background:url("../image/loadratebg.png") no-repeat 0 0;}
-.m-loadrate .loadcover{position:absolute;top:8px;left:9px;width:491px;height:35px;background:url("../image/loadratecover.png") no-repeat 0 0;}
+.m-loadrate .loadcover{position:absolute;top:8px;left:9px;width:0px;height:35px;background:url("../image/loadratecover.png") no-repeat 0 0;}
 
 /* m-choose */
 .m-choose{}

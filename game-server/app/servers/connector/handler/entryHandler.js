@@ -29,7 +29,7 @@ pro.entry = function(msg, session, next) {
 		return;
 	}
 
-	var uid, players, player;
+	var uid, player;
 	async.waterfall([
 		function(cb) {
 			// auth token
@@ -45,22 +45,11 @@ pro.entry = function(msg, session, next) {
 				next(null, {code: Code.ENTRY.FA_USER_NOT_EXIST});
 				return;
 			}
-			
-			uid = user.id;
-			userDao.getPlayersByUid(user.id, cb);
-		}, function(res, cb) {
+			uid = user.uid;
 			// generate session and register chat status
-			players = res;
 			self.app.get('sessionService').kick(uid, cb);
-		}, function(cb) {
 			session.bind(uid, cb);
-		}, function(cb) {
-			if(!players || players.length === 0) {
-				next(null, {code: Code.OK});
-				return;
-			}
-
-			player = players[0];
+			player = { areaId:1, name:'test', id:uid,userId:uid};
 			session.set('areaId', player.areaId);
 			session.set('playername', player.name);
 			session.set('playerId', player.id);
@@ -75,7 +64,7 @@ pro.entry = function(msg, session, next) {
 			next(err, {code: Code.FAIL});
 			return;
 		}
-		next(null, {code: Code.OK, player: players ? players[0] : null});
+		next(null, {code: Code.OK, player:  player});
 	});
 };
 

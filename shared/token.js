@@ -38,5 +38,5 @@ module.exports.parse = function(token, pwd) {
 		// illegal token
 		return null;
 	}
-	return {uid: ts[0], timestamp: Number(ts[1])};
+	return {uid: Number(ts[0]), timestamp: Number(ts[1])};
 };

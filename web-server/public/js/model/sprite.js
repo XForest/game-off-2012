@@ -497,6 +497,9 @@ __resources__["/sprite.js"] = {meta: {mimetype: "application/javascript"}, data:
 		if(!this.curNode) {
 			return;
 		}
+		if (this.entity.entityId===23){
+			console.log('%j',path)
+		}
 		if(!path || path.length <= 1) {
 			console.error('invalid path: ' + path);
 			return;
@@ -520,7 +523,7 @@ __resources__["/sprite.js"] = {meta: {mimetype: "application/javascript"}, data:
 	};
 
 	Sprite.prototype.getSpeed = function() {
-		return this.entity.walkSpeed;
+		return this.entity.walkSpeed || this.entity.characterData.walkSpeed;
 	};
 
 	/**
@@ -553,7 +556,9 @@ __resources__["/sprite.js"] = {meta: {mimetype: "application/javascript"}, data:
 		var distance = utils.distance(start.x, start.y, end.x, end.y);
 		var time = Math.floor(this.leftTime * distance / this.leftDistance) || 1;
 		var self = this;
-
+		if (self.entity.entityId===23){
+			console.log('fdsfd')
+		}
 		this._move(start.x, start.y, end.x, end.y, time, function(dt) {
 			index++;
 			self.leftDistance -= distance;
@@ -566,9 +571,10 @@ __resources__["/sprite.js"] = {meta: {mimetype: "application/javascript"}, data:
 				self._movePathStep(index); 
 				return;
 			}
+			console.log('stop');
 			self.stopWholeAnimations();
 			self.clearPath();
-			self.stand({x1: start.x, y1: start.y, x2: end.x, y2: end.y});
+			self.stand({x1:end.x, y1:end.y, x2: end.x, y2: end.y});
 		});
 	};
 

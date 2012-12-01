@@ -22,13 +22,12 @@ __resources__["/resourceLoader.js"] = {
     var pro = ResourceLoader.prototype = Object.create(EventEmitter.prototype);
 
     pro.setTotalCount = function(count) {
-      this.totalCount = count;
+      this.totalCount = count-20;
       this.emit('loading', {total: this.totalCount, loaded: this.loadedCount});
     };
 
     pro.setLoadedCount = function(count) {
       this.loadedCount = count;
-			this.totalCount = 10;
       this.emit('loading', {total: this.totalCount, loaded: this.loadedCount});
       if (this.loadedCount === this.totalCount) {
         this.emit('complete');

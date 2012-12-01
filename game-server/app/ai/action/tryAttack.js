@@ -50,10 +50,10 @@ pro.doAction = function() {
 		console.error('The target type error!' + target.type);
 		return bt.RES_FAIL;	
 	}
-	if (!!target.wasHated && target.wasHated!==character){
-		 character.forgetHater(targetId);
-		 return bt.RES_FAIL;
-	}
+	//if (!!target.wasHated && target.wasHated!==character){
+		 //character.forgetHater(targetId);
+		 //return bt.RES_FAIL;
+	//}
 	var res = character.attack(target, this.getSkillId(this.blackboard));
 	target.wasHated = character;
 	if(res.result === consts.AttackResult.SUCCESS || 

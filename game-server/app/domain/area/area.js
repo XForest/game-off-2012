@@ -121,7 +121,6 @@ exp.addEntity = function(e) {
 		logger.error('add player twice! player : %j', e);
 		return false;
 	}
-
 	entities[e.entityId] = e;
 	eventManager.addEvent(e);
   

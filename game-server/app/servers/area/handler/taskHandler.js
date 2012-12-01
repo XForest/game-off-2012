@@ -5,7 +5,6 @@
 var dataApi = require('../../../util/dataApi');
 var area = require('../../../domain/area/area');
 var consts = require('../../../consts/consts');
-var taskDao = require('../../../dao/taskDao');
 var logger = require('pomelo-logger').getLogger(__filename);
 var taskReward = require('../../../domain/taskReward');
 var pomelo = require('pomelo');
@@ -142,27 +141,10 @@ handler.getHistoryTasks = function(msg, session, next) {
 handler.getNewTask = function(msg, session, next) {
   var player = area.getPlayer(msg.playerId);
   var tasks = player.curTasks;
-	var length = tasks.length;
-	var id = 0;
-	taskDao.getTaskByPlayId(msg.playerId, function(err, tasks) {
-		if (!!err) {
-			logger.error('getNewTask failed!');
-			next(new Error('fail to getNewTask!'));
-		//do not start task
-		} else {
-			var length = tasks.length;
-			if (length > 0) {
-				for (var i = 0; i < length; i++) {
-					if (parseInt(tasks[i].kindId) > id) {
-						id = parseInt(tasks[i].kindId);
-					}
-				}
-			}
-			var task = dataApi.task.findById(++id);
-			next(null, {
-				code: consts.MESSAGE.RES,
+	var id = 1;
+	var task = dataApi.task.findById(++id);
+	next(null, {
+			code: consts.MESSAGE.RES,
 				task: task
-			});
-		}
 	});
 };

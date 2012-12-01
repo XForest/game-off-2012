@@ -39,9 +39,7 @@ handler.enterScene = function(msg, session, next) {
 
       return;
     }
-
     player.serverId = session.frontendId;
-
     pomelo.app.rpc.chat.chatRemote.add(session, session.uid,  
     player.name, channelUtil.getAreaChannelName(areaId), null);
 		var map = area.map();

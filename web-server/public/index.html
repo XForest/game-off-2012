@@ -7,7 +7,7 @@
     <link href="css/client.css" rel="stylesheet" type="text/css">
     <link href="css/global.css" rel="stylesheet" type="text/css">
 
-    <title>Lord of Pomelo</title>
+    <title>XForest Pomelo</title>
 
     <!-- @DEFINE {nodep:true} -->
     <script src='./js/lib/colorbox/colorbox_header.js'></script>
@@ -56,7 +56,6 @@
     <script src="js/lib/socket.io.js" type="text/javascript"></script>
     <script src="js/ui/clientManager.js" type="text/javascript"></script>
     <script src="js/ui/switchManager.js" type="text/javascript"></script>
-    <script src="js/ui/heroSelectView.js" type="text/javascript"></script>
     <script src="js/ui/mainPanelView.js" type="text/javascript"></script>
     <script src="js/ui/playerPanelView.js" type="text/javascript"></script>
     <script src="js/ui/equipmentsPanelView.js" type="text/javascript"></script>
@@ -104,123 +103,8 @@
 
   <body>
   <div class="g-doc">
-    <!-- 登陆和注册页面 -->
-    <div id="loginPanel" class="m-index">
-      <div class="m-logo fiximg"></div>
-      <!-- 登陆框 -->
-      <div class="m-lrframe" id="id_loginFrame">
-        <div class="wrap">
-          <div class="bg0 fiximg"></div>
-          <div class="bg1 fiximg">
-            <div class="bg1-1 fiximg"></div>
-            <div class="bg1-2"></div>
-          </div>
-          <div class="bg2 fiximg"></div>
-          <div class="cnt">
-            <div class="m-login">
-              <div class="hd">
-                <div class="tt">
-                  <img class="fiximg" alt="" src="image/loginTT.png" />
-                </div>
-              </div>
-              <div class="bd">
-                <!-- 登陆输入 -->
-                <div class="m-input" title="username"><div class="caption">Username</div><div class="input fiximg"><input id="loginUser" type="text" /></div></div>
-                <div class="m-input" title="password"><div class="caption">Password</div><div class="input fiximg"><input id="loginPwd" type="password"/></div></div>
-                <div class="m-3col"><div class="col1" style="display:none;">Remember password：</div><div style="display:none;" class="col2 fiximg"><div class="checkbox" checked="checked"></div></div><div class="col3" title="login"><button id="loginBtn"></button></div></div>
-              </div>
-              <div class="ft">
-                <div class="m-3col2"><div class="col1">Login with: </div><div class="col2"><ul id="authBtn" class="f-cb"><li title="weibo"><a class="a1 weibo" href="/lordofpomelo/auth/weibo">&nbsp;&nbsp;&nbsp;&nbsp;</a></li><li title="github"><a class="a2 fiximg github" href="/lordofpomelo/auth/github">&nbsp;&nbsp;&nbsp;&nbsp;</a></li><li style="display:none;"><a class="a3 fiximg" href="#">&nbsp;&nbsp;&nbsp;&nbsp;</a></li><li title="facebook"><a class="a4 facebook" href="/lordofpomelo/auth/facebook">&nbsp;&nbsp;&nbsp;&nbsp;</a></li><li title="twitter"><a class="a5 twitter" href="/lordofpomelo/auth/twitter">&nbsp;&nbsp;&nbsp;&nbsp;</a></li><li title="google"><a class="a6 google" href="/lordofpomelo/auth/google">&nbsp;&nbsp;&nbsp;&nbsp;</a></li><li class="lastli"><div class="sep"></div></li></ul></div><div class="col3" title="register"><button id="id_toRegisterBnt"></button></div></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- 注册框 -->
-      <div class="m-lrframe f-dn" id="id_registerFrame">
-        <div class="wrap">
-          <div class="bg0 fiximg"></div>
-          <div class="bg1 fiximg">
-            <div class="bg1-1 fiximg"></div>
-            <div class="bg1-2"></div>
-          </div>
-          <div class="bg2 fiximg"></div>
-          <div class="bg3 fiximg" title="Back to login"></div>
-          <div class="cnt">
-            <div class="m-login">
-              <div class="hd">
-                <div class="tt">
-                  <img class="fiximg" src="image/registerTT.png" />    
-                </div>
-              </div>
-              <div class="bd">
-                <!-- 注册输入 -->
-                <div class="m-input m-input-1"><div class="caption">Username</div><div class="input fiximg"><input id="reg-name" type="text" /></div></div>
-                <div class="m-input m-input-1"><div class="caption">Password</div><div class="input fiximg"><input id="reg-pwd" type="password" /></div></div>
-                <div class="m-input m-input-1"><div class="caption">Confirm Password</div><div class="input fiximg"><input id="reg-cpwd" type="password" /></div></div>
-              </div>
-              <div class="ft">
-                <div class="m-3col m-3col-1"><div class="col1 f-dn">read and agree the statement</div><div class="col2 fiximg f-dn"><div class="checkbox" checked="checked"></div></div><div class="col3 col3-1"><button id="registerBtn"></button></div></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> 
-    </div>
-    
-    <div id="gamePrelude" class="m-admissionanima f-dn">
-      <div class="logo"><div class="m-logo fiximg"></div></div>
-      <div class="showimg">
-        <div class="img"><img src="image/admissionanimabg.jpg"></div>
-        <div class="text a-fadeinB"><img src="image/admissionanimatext.png"></div>
-        <div class="mask"></div>                  
-      </div>
-      <button class="skipbnt" id="id_skipbnt">SKIP</button>
-    </div>
-
-    <!-- 人物选择页面 -->
-    <div id="heroSelectPanel" class="m-choose f-dn">
-      <div class="logo"><img class="fiximg" src="image/logo2.png" /></div>
-      <div class="m-chooserole">
-        <div class="wrap">
-          <div class="bg fiximg"></div>
-          <div class="cover a6 fiximg"></div>
-          <div class="choosewrap">
-            <div class="choose">
-              <div class="role role-1 fiximg"></div>
-              <div class="role role-2 fiximg"></div>
-              <div class="role role-3 fiximg"></div>
-              <div class="role role-4 fiximg"></div>
-              <div class="role role-5 fiximg"></div>
-              <div class="role role-6 fiximg"></div>
-              <div class="role role-7 fiximg"></div>
-              <div class="role role-8 fiximg"></div>
-              <div class="role role-9 fiximg"></div>
-              <div class="role role-10 fiximg"></div>
-              <div class="role role-11 fiximg"></div>
-              <div class="role role-12 fiximg"></div>
-              <div class="m-targetrole">
-                <div class="targetrolebg0">
-                  <div class="targetrolebg0-1 fiximg"></div>    
-                  <div class="targetrolebg0-2 fiximg"></div>    
-                </div>
-                <div class="targetrolebg1 fiximg"></div>
-                <div class="targetrolecnt fiximg"></div>
-                <div class="targetrolecover fiximg"></div>
-              </div>
-            </div> 
-          </div>
-        </div>
-        <div class="order">
-          <div class="left fiximg">Name</div>
-          <div class="middle"><div class="input fiximg"><input id="gameUserName" type="text"></div></div>
-          <div class="right"><button id="heroSelectBtn"></button></div>
-        </div>
-      </div>
-    </div>
-
     <!-- 游戏加载页面 -->
-    <div id="loadingPanel" class="m-loading f-dn">
+    <div id="loadingPanel" class="m-loading ">
       <div class="m-logo fiximg"></div>
       <div class="m-loadframe">
         <div class="wrap">
@@ -548,7 +432,7 @@
           </div>
 
           <div id="game-mask">
-            <div>Reviving ...<span></span></div>
+            <div>...Cloning...<span></span></div>
           </div>
 
           <div id="notice">

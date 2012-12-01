@@ -13,28 +13,30 @@ In this game, the client communicates via websockets with the server.
 
 ## Concepts 
 
-First.  we clone a hero that will clone hp, mp, attack and defense etc from the hero ontology.
-Second. hero enters the origin master scene to push message and pull task from NPC.
-Third.  There are three branch scenes in the game, where you can roam casually, just like github branch.
-Last. after died,hero will clone self,and commit the status.
+First.  game <b>clone</b> a hero that will <b>clone</b> hp, mp, attack and defense etc from the hero ontology.<br/>
+
+Second. hero enters the <b>origin</b> <b>master</b> scene to <b>push</b> message and <b>pull</b> task from NPC.<br/>
+Third.  There are three <b>branch</b> scenes in the game, where you can roam casually, just like github <b>branch</b>.<br/>
+Last. after died,hero will <b>clone</b> self,and <b>commit</b> the status.<br/>
 
 
 ## Screenshot
 
-![scene three](http://pomelo.netease.com/image/demo4.png)
+![scene three](http://pomelo.netease.com/image/demo4.png)<br/>
+This is a screenshot in scene three. There are many monsters and one hero named Traxex who is killing the monster for experiences, treasures and equipments.
 
 
 ## How to install
-First. clone the code and config mysql.
-Then npm install in game-server and web-server.
-Last exec node app.js in aboved direcotry.
+First.Clone the code.
+Then. Exec npm install in game-server and web-server.
+Last. Exec node app.js in aboved direcotry.
 
+visit http://127.0.0.1:3001/
 
 ## Requirements
 
 * [nodejs](http://nodejs.org/)
 * Linux or Mac os
-* MySQL
 
 ## Open source projects
 
@@ -42,26 +44,9 @@ Last exec node app.js in aboved direcotry.
 * colorbox
 * express(http://expressjs.com/)
 * socket.io(http://socket.io/)
-
+* 66rpg source(http://www.66rpg.com)
 .................
-
-#### pomelo
-
-Pomelo is made by our team. It is a fast, scalable, distributed game server framework for node.js. It provides the basic
-development framework and a lot of related components, including libraries and tools. Pomelo is also suitable for realtime
-web application, its distributed architecture makes pomelo scales better than other realtime web framework.
-
-####colorbox
-Colorbox is our team's another open source project. It is a client side game engine written in JavaScript based on HTML5 and 
-soon to be open source. 
-
-
-## Screenshot
-
-![scene three](http://pomelo.netease.com/image/demo4.png)
-
-This is a screenshot in scene three. There are many monsters and one hero named Traxex who is killing the monster for experiences, treasures and equipments.
-
+ 
 
 ## License
 
@@ -87,3 +72,4 @@ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
 CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+

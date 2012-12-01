@@ -9,8 +9,6 @@ var EntityType = require('../../consts/consts').EntityType;
 var TaskType = require('../../consts/consts').TaskType;
 var TaskState = require('../../consts/consts').TaskState;
 var Character = require('./character');
-var fightskillDao = require('../../dao/fightskillDao');
-var taskDao = require('../../dao/taskDao');
 var fightskill = require('./../fightskill');
 var logger = require('pomelo-logger').getLogger(__filename);
 var area = require('./../area/area');
@@ -41,6 +39,7 @@ var Player = function(opts) {
 	this.curTasks = opts.curTasks;
 	this.range = opts.range || 2;
 	this.wasHated = null;
+	this.walkSpeed = opts.walkSpeed;
 	this.setTotalAttackAndDefence();
 };
 
@@ -191,7 +190,6 @@ Player.prototype.learnSkill = function(skillId, callback) {
 	}
 	var fightSkill = fightskill.create({skillId: skillId, level: 1, playerId: this.id, type:'attack'});
 	this.fightSkills[skillId] = fightSkill;
-	fightskillDao.add(fightSkill, callback);
 	return true;
 };
 

@@ -99,7 +99,7 @@ __resources__["/chat.js"] = {meta: {mimetype: "application/javascript"}, data: f
 			if (data.code === 3004) {
 				alert(' user is offline ');
 			} else {
-				alert(' things go bad ');
+				//alert(' things go bad ');
 			}
 			return;
 		} else {

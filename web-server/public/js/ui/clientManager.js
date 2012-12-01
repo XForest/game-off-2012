@@ -4,7 +4,6 @@ __resources__["/clientManager.js"] = {
 	},
 	data: function(exports, require, module, __filename, __dirname) {
 		//var clientManager = require('Manager');
-		var heroSelectView = require('heroSelectView');//选角色管理
 
 		var pomelo = window.pomelo;
 		var app = require('app');
@@ -27,36 +26,15 @@ __resources__["/clientManager.js"] = {
 
 		pomelo.on('websocket-error', function(){
 			lodading = false;
+       var $percent = $('#id_loadPercent').html('disconnect 0');
 		});
 
 		function init() {
-      //bind events
-      $('#loginBtn').on('click', login);
-      $('#registerBtn').on('click', register);
-      //oauth button
-      $('#authBtn li a').on('click', function () {
-        var $a = $(this);
-        var url = $a.attr('href');
-        if (url && url !== '#') {
-          window.open(window.location.origin + url, "auth", "toolbar=0,status=0,resizable=1,width=620,height=450,left=200,top=200");
-        }
-        return false;
-      });
-
-      // go to register
-      $('#id_toRegisterBnt').on('click', function() {
-        $('#id_loginFrame').addClass('f-dn');
-        $('#id_registerFrame').removeClass('f-dn');
-        return false;
-      });
-
-      // back button
-      $('#id_registerFrame .bg3').on('click', function() {
-        $('#id_loginFrame').removeClass('f-dn');
-        $('#id_registerFrame').addClass('f-dn');
-        return false;
-      });
-		}
+     var $percent = $('#id_loadPercent').html(0);
+     var $bar = $('#id_loadRate').css('width', 0);
+		 $bar.css('width', '0%');
+     login(); 
+		};
 
     /**
      * login
@@ -66,33 +44,8 @@ __resources__["/clientManager.js"] = {
         return;
       }
       loading = true;
-      var username = $('#loginUser').val().trim();
-      var pwd = $('#loginPwd').val().trim();
-      $('#loginPwd').val('');
-      if (!username) {
-        alert("Username is required!");
-        loading = false;
-        return;
-      }
-
-      if (!pwd) {
-        alert("Password is required!");
-        loading = false;
-        return;
-      }
-
+			var username = "sss",pwd='123';
       $.post(httpHost + 'login', {username: username, password: pwd}, function(data) {
-        if (data.code === 501) {
-          alert('Username or password is invalid!');
-          loading = false;
-          return;
-        } 
-        if (data.code !== 200) {
-          alert('Username is not exists!');
-          loading = false;
-          return;
-        }
-
         authEntry(data.uid, data.token, function() {
           loading = false;
         });
@@ -131,10 +84,8 @@ __resources__["/clientManager.js"] = {
         host = config.GATE_HOST;
       }
       pomelo.init({host: host, port: port, log: true}, function() {
-        //token = 'd72357c4c7f9b6a8e0b6a93c4d8652b1903114819c36749e53b97d1a78372387';
         pomelo.request('connector.entryHandler.entry', { token: token}, function(data) {
           var player = data.player;
-
           if (callback) {
             callback(data.code);
           }
@@ -155,12 +106,7 @@ __resources__["/clientManager.js"] = {
           // init handler
           loginMsgHandler.init();
           gameMsgHandler.init();
-
-          if (!player || player.id <= 0) {
-            switchManager.selectView("heroSelectPanel");
-          } else {
-            afterLogin(data);
-          }
+          afterLogin(data);
         });
       });
     }
@@ -173,94 +119,13 @@ __resources__["/clientManager.js"] = {
 
     pomelo.authEntry = authEntry;
 
-    //register
-    function register() {
-      if (loading) {
-        return;
-      }
-      loading = true;
-      var name = $('#reg-name').val().trim();
-      var pwd = $('#reg-pwd').val().trim();
-      var cpwd = $('#reg-cpwd').val().trim();
-      $('#reg-pwd').val('');
-      $('#reg-cpwd').val('');
-      if (name === '') {
-        alert('Username is required!');
-        loading = false;
-        return;
-      }
-      if (pwd === '') {
-        alert('Password is required!');
-        loading = false;
-        return;
-      }
-      if (pwd != cpwd) {
-        alert('Entered passwords differ!');
-        loading = false;
-        return;
-      }
-      $.post(httpHost + 'register', {name: name, password: pwd}, function(data) {
-        if (data.code === 501) {
-          alert('Username already exists！');
-          loading = false;
-        } else if (data.code === 200) {
-          authEntry(data.uid, data.token, function() {
-            loading = false;
-          });
-        } else {
-          alert('Register fail！');
-          loading = false;
-        }
-      });
-    }
-
-    // createPlayer
-    function createPlayer() {
-      if (loading) {
-        return;
-      }
-      var roleId = heroSelectView.getRoleId();
-      var name = document.getElementById('gameUserName').value.trim();
-      var pwd = "pwd";
-
-      if (!name) {
-        alert("Role name is required!");
-        loading = false;
-      } else if (name.length > 9) {
-        alert("Role name's length is too long!");
-        loading = false;
-      } else {
-        pomelo.request("connector.roleHandler.createPlayer", {name: name, roleId: roleId}, function(data) {
-          loading = false;
-          if (data.code == 500) {
-            alert("The name already exists!");
-            return;
-          }
-
-          if (data.player.id <= 0) {
-            switchManager.selectView("loginPanel");
-          } else {
-            afterLogin(data);
-          }
-        });
-      }
-    }
-
     function afterLogin(data) {
-      var userData = data.user;
-      var playerData = data.player;
-
-      var areaId = playerData.areaId;
+      //var areaId = playerData.areaId;
       var areas = {1: {map: {id: 'jiangnanyewai.png', width: 3200, height: 2400}, id: 1}};
-
-      if (!!userData) {
-        pomelo.uid = userData.id;
-      }
-      pomelo.playerId = playerData.id;
-      pomelo.areaId = areaId;
-      pomelo.player = playerData;
+			pomelo.uid = data.player.id;
+      pomelo.playerId = pomelo.uid;// playerData.id;
+      pomelo.areaId = 1;//areaId;
       loadResource({jsonLoad: true}, function() {
-        //enterScene();
         gamePrelude();
       });
     }
@@ -268,18 +133,10 @@ __resources__["/clientManager.js"] = {
     function gamePrelude() {
       switchManager.selectView("gamePrelude");
       var entered = false;
-      $('#id_skipbnt').on('click', function() {
         if (!entered) {
           entered = true;
           enterScene();
         }
-      });
-      setTimeout(function(){ 
-        if (!entered) {
-          entered = true;
-          enterScene();
-        }
-      }, 12000);
     }
 
 
@@ -290,6 +147,8 @@ __resources__["/clientManager.js"] = {
       var $bar = $('#id_loadRate').css('width', 0);
       loader.on('loading', function(data) {
         var n = parseInt(data.loaded * 100 / data.total, 10);
+				if (n>=100)
+					n=100;
         $bar.css('width', n + '%');
         $percent.html(n);
       });
@@ -325,8 +184,9 @@ __resources__["/clientManager.js"] = {
 			var totalDistance = utils.totalDistance(paths.path);
 			var needTime = Math.floor(totalDistance / sprite.getSpeed() * 1000 + app.getDelayTime());
 			var speed = totalDistance/needTime * 1000;
-      sprite.movePath(paths.path, speed);
+      //sprite.movePath(paths.path, speed);
       pomelo.request('area.playerHandler.move',{ path: paths.path}, function(result) {
+				console.log('move%j',result);
         if(result.code === Message.ERR){
           console.warn('curPlayer move error!');
 					sprite.translateTo(paths.path[0].x, paths.path[0].y);

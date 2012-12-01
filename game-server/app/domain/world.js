@@ -3,8 +3,6 @@ var utils = require('../util/utils');
 var area = require('./area/area');
 var messageService = require('./messageService');
 var pomelo = require('pomelo');
-var userDao = require('../dao/userDao');
-var taskDao = require('../dao/taskDao');
 var logger = require('pomelo-logger').getLogger(__filename);
 var Map = require('./map/map');
 

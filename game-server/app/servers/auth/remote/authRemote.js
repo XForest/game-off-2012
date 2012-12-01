@@ -1,5 +1,4 @@
 var tokenService = require('../../../../../shared/token');
-var userDao = require('../../../dao/userDao');
 var Code = require('../../../../../shared/code');
 
 var DEFAULT_SECRET = 'pomelo_session_secret';
@@ -36,15 +35,10 @@ pro.auth = function(token, cb) {
 		cb(null, Code.ENTRY.FA_TOKEN_EXPIRE);
 		return;
 	}
-
-	userDao.getUserById(res.uid, function(err, user) {
-		if(err) {
-			cb(err);
-			return;
-		}
-		
-		cb(null, Code.OK, user);
-	});
+	var user = {
+		uid:res.uid
+	}
+	cb(null, Code.OK, user);
 };
 
 var checkExpire = function(token, expire) {

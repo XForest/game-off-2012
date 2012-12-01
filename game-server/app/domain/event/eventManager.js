@@ -31,16 +31,5 @@ exp.addEvent = function(entity){
  */
 function addSaveEvent(player) {
 	var app = pomelo.app;
-	player.on('save', function() {
-		app.get('sync').exec('playerSync.updatePlayer', player.id, player.strip());
-	});
-
-	player.bag.on('save', function() {
-		app.get('sync').exec('bagSync.updateBag', player.bag.id, player.bag);
-	});
-
-	player.equipments.on('save', function() {
-		app.get('sync').exec('equipmentsSync.updateEquipments', player.equipments.id, player.equipments);
-	});
 }
 

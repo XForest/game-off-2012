@@ -5,7 +5,6 @@ var consts = require('../consts/consts');
 var area = require('./area/area');
 var messageService = require('./messageService');
 var taskData = require('../util/dataApi').task;
-var taskDao = require('../dao/taskDao');
 var logger = require('pomelo-logger').getLogger(__filename);
 var async = require('async');
 

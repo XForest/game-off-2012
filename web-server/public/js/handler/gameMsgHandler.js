@@ -73,6 +73,9 @@ __resources__["/gameMsgHandler.js"] = {meta: {mimetype: "application/javascript"
 		 */
 
 		pomelo.on('onMove', function(data){
+			if(data.entityId===23){
+				console.log('login%j',data);
+			}
 			var path = data.path;
 			var character = app.getCurArea().getEntity(data.entityId);
 			if(!character){
@@ -107,6 +110,7 @@ __resources__["/gameMsgHandler.js"] = {meta: {mimetype: "application/javascript"
 			var playerData = data.player;
 			var area = app.getCurArea();
 			var player = area.getPlayer(playerData.id);
+			console.log('%j',playerData);
 			player.upgrade(playerData);
 			player.getSprite().upgrade();
 		});
