@@ -45,7 +45,6 @@ visit http://127.0.0.1:3001/
 * express(http://expressjs.com/)
 * socket.io(http://socket.io/)
 * 66rpg source(http://www.66rpg.com)
-.................
  
 
 ## License
