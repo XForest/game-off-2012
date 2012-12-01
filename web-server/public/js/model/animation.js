@@ -143,13 +143,13 @@ __resources__["/animation.js"] = {meta: {mimetype: "application/javascript"}, da
 		var aniIamgeUrl;
 		if (type === EntityType.PLAYER || type === EntityType.MOB) {
 			if (name.indexOf('Stand')!=-1 || name.indexOf('Walk')!=-1) {
-				aniIamgeUrl =  imgAndJsonUrl+ 'pic/hero/'+id+'/Stand.png';
+				aniIamgeUrl =  imgAndJsonUrl+ 'hero/'+id+'/Stand.png';
 			} else if (name.indexOf('Attack')!=-1) {
-				aniIamgeUrl = imgAndJsonUrl + 'pic/hero/'+id+'/Attack.png';
+				aniIamgeUrl = imgAndJsonUrl + 'hero/'+id+'/Attack.png';
 			} else if (name.indexOf('Hurt')!=-1) {
-				aniIamgeUrl = imgAndJsonUrl + 'pic/hero/'+id+'/Hurt.png';
+				aniIamgeUrl = imgAndJsonUrl + 'hero/'+id+'/Hurt.png';
 			} else {
-				aniIamgeUrl = imgAndJsonUrl + 'pic/hero/'+id+'/Die.png';
+				aniIamgeUrl = imgAndJsonUrl + 'hero/'+id+'/Die.png';
 			} 
 			
 			//aniIamgeUrl = imgAndJsonUrl+'animation/character/'+id+'/'+name+'.png';
