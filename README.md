@@ -44,11 +44,7 @@ visit http://127.0.0.1:3001/
 * colorbox
 * express(http://expressjs.com/)
 * socket.io(http://socket.io/)
-<<<<<<< HEAD
 * 66rpg source(http://www.66rpg.com)
-=======
-* 66rpg.com
->>>>>>> bbd743ae269e5835fd059f9bec98ea80db54b308
 .................
  
 
