@@ -22,7 +22,7 @@ app.configure('development', function(){
 });
 
 app.configure('production', function(){
-  var oneYear = -1;
+  var oneYear = 999999999;
   app.use(express.static(publicPath, { maxAge: oneYear }));
   app.use(express.errorHandler());
 });
