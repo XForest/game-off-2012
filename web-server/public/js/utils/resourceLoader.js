@@ -101,7 +101,7 @@ __resources__["/resourceLoader.js"] = {
 						//self.loadImg(imgURL + 'animation/character/' + id + '/Left' + action + '.png');
 					//} else
 					{
-						self.loadImg('http://localhost:3001/pic/hero/' + id + '/' + action + '.png');
+						self.loadImg(imgURL + 'hero/' + id + '/' + action + '.png');
 					}
         });
       });
