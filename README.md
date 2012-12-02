@@ -8,7 +8,7 @@ In this game, the client communicates via websockets with the server.
 
 ## Online demo
 
- * Visit [XForest](http://www.appme.net) online
+ * Visit [XForest](http://42.121.124.204/) online
 
 
 ## Concepts 
@@ -22,7 +22,7 @@ Last. after died,hero will <b>clone</b> self,and <b>commit</b> the status.<br/>
 
 ## Screenshot
 
-![scene three](http://pomelo.netease.com/image/demo4.png)<br/>
+![scene three](http://42.121.124.204/pic/screen.png)<br/>
 This is a screenshot in scene three. There are many monsters and one hero named Traxex who is killing the monster for experiences, treasures and equipments.
 
 
