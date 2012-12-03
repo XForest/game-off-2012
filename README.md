@@ -8,7 +8,7 @@ In this game, the client communicates via websockets with the server.
 
 ## Online demo
 
- * Visit [XForest](http://42.121.124.204/) online
+ * Visit [XForest](http://ec2-176-32-79-0.ap-northeast-1.compute.amazonaws.com:3001/) online
 
 
 ## Concepts 
